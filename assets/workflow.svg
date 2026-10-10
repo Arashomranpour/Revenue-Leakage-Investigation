@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 1170" width="920" height="1170" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#475569"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="920" height="1170" rx="18" fill="#f8fafc"/>
+
+  <!-- title -->
+  <text x="660" y="52" font-size="19" font-weight="700" fill="#0f172a">LangGraph workflow</text>
+  <text x="660" y="74" font-size="13" fill="#64748b">Revenue Leakage Investigation</text>
+
+  <!-- connectors -->
+  <g stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M330 64 V112"/>
+    <path d="M330 168 V208"/>
+    <path d="M330 280 V320"/>
+    <path d="M330 376 V416"/>
+    <path d="M330 472 V501"/>
+    <path d="M330 589 V632"/>
+    <path d="M330 704 V748"/>
+    <path d="M330 820 V861"/>
+    <path d="M330 949 V992"/>
+    <path d="M330 1048 V1088"/>
+    <path d="M440 545 H620 V1020 H460" stroke-dasharray="6 5"/>
+    <path d="M220 905 H90 V668 H200" stroke-dasharray="6 5"/>
+  </g>
+  <path d="M460 244 H650" stroke="#2563eb" stroke-width="1.6" stroke-dasharray="3 4" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- edge labels -->
+  <g font-size="12" fill="#475569" font-weight="600">
+    <text x="342" y="617">proposals</text>
+    <text x="500" y="537">no proposals</text>
+    <text x="96" y="896">more pending</text>
+    <text x="342" y="974">all decided</text>
+  </g>
+
+  <!-- start -->
+  <g filter="url(#shadow)">
+    <rect x="270" y="24" width="120" height="40" rx="20" fill="#1e293b"/>
+  </g>
+  <text x="330" y="49" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">START</text>
+
+  <!-- plan -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="112" width="260" height="56" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  </g>
+  <text x="330" y="136" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a8a">plan</text>
+  <text x="330" y="155" text-anchor="middle" font-size="12" fill="#334155">LLM drafts the investigation plan</text>
+
+  <!-- investigate -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="208" width="260" height="72" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  </g>
+  <text x="330" y="234" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a8a">investigate</text>
+  <text x="330" y="253" text-anchor="middle" font-size="12" fill="#334155">LLM tool-calling loop</text>
+  <text x="330" y="269" text-anchor="middle" font-size="12" fill="#334155">read-only tools, with retries</text>
+
+  <!-- analyze -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="320" width="260" height="56" rx="12" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  </g>
+  <text x="330" y="344" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">analyze</text>
+  <text x="330" y="363" text-anchor="middle" font-size="12" fill="#334155">deterministic Decimal math in Python</text>
+
+  <!-- propose_actions -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="416" width="260" height="56" rx="12" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  </g>
+  <text x="330" y="440" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">propose_actions</text>
+  <text x="330" y="459" text-anchor="middle" font-size="12" fill="#334155">one pending approval per fix</text>
+
+  <!-- decision 1 -->
+  <g filter="url(#shadow)">
+    <path d="M330 501 L440 545 L330 589 L220 545 Z" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  </g>
+  <text x="330" y="550" text-anchor="middle" font-size="14" font-weight="600" fill="#0f172a">proposals?</text>
+
+  <!-- human_approval -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="632" width="260" height="72" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  </g>
+  <text x="330" y="658" text-anchor="middle" font-size="15" font-weight="700" fill="#78350f">human_approval</text>
+  <text x="330" y="677" text-anchor="middle" font-size="12" fill="#78350f">interrupt(): graph is suspended</text>
+  <text x="330" y="693" text-anchor="middle" font-size="12" fill="#78350f">resumes only on an approver's decision</text>
+
+  <!-- execute -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="748" width="260" height="72" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  </g>
+  <text x="330" y="774" text-anchor="middle" font-size="15" font-weight="700" fill="#14532d">execute</text>
+  <text x="330" y="793" text-anchor="middle" font-size="12" fill="#14532d">the only node that writes</text>
+  <text x="330" y="809" text-anchor="middle" font-size="12" fill="#14532d">re-checks the approval first</text>
+
+  <!-- decision 2 -->
+  <g filter="url(#shadow)">
+    <path d="M330 861 L440 905 L330 949 L220 905 Z" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  </g>
+  <text x="330" y="910" text-anchor="middle" font-size="14" font-weight="600" fill="#0f172a">more pending?</text>
+
+  <!-- summarize -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="992" width="260" height="56" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  </g>
+  <text x="330" y="1016" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a8a">summarize</text>
+  <text x="330" y="1035" text-anchor="middle" font-size="12" fill="#334155">LLM writes the findings report</text>
+
+  <!-- end -->
+  <g filter="url(#shadow)">
+    <rect x="270" y="1088" width="120" height="40" rx="20" fill="#1e293b"/>
+  </g>
+  <text x="330" y="1113" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">END</text>
+
+  <!-- side: billing tools -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="208" width="220" height="72" rx="12" fill="#fff" stroke="#2563eb" stroke-width="1.5"/>
+  </g>
+  <text x="770" y="234" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">Billing tools (SQL)</text>
+  <text x="770" y="253" text-anchor="middle" font-size="12" fill="#475569">customers, plans, invoices,</text>
+  <text x="770" y="269" text-anchor="middle" font-size="12" fill="#475569">usage, reconcile_customer</text>
+
+  <!-- side: cross-cutting -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="320" width="220" height="132" rx="12" fill="#fff" stroke="#64748b" stroke-width="1.5"/>
+  </g>
+  <text x="770" y="346" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Runs through every step</text>
+  <g font-size="12" fill="#475569" text-anchor="middle">
+    <text x="770" y="372">SQLite checkpointer: memory</text>
+    <text x="770" y="392">Audit log: who, what, when</text>
+    <text x="770" y="412">Retries with back-off</text>
+    <text x="770" y="432">Role check: analyst / approver</text>
+  </g>
+
+  <!-- legend -->
+  <g font-size="12" fill="#334155">
+    <text x="660" y="900" font-size="13" font-weight="700" fill="#0f172a">Legend</text>
+    <rect x="660" y="914" width="16" height="16" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="686" y="927">LLM step</text>
+    <rect x="660" y="938" width="16" height="16" rx="4" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <text x="686" y="951">Deterministic Python</text>
+    <rect x="660" y="962" width="16" height="16" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+    <text x="686" y="975">Human approval gate</text>
+    <rect x="660" y="986" width="16" height="16" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="686" y="999">Writes to billing data</text>
+  </g>
+</svg>

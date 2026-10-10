@@ -29,6 +29,13 @@ Open http://localhost:8501, paste your Groq key (free at https://console.groq.co
 
 **Demo mode (no key):** set `$env:FAKE_LLM = "1"` before starting uvicorn; any `gsk_...` value connects. For tests and demos only.
 
+## LangGraph workflow
+![LangGraph workflow diagram](assets/workflow.svg)
+
+- `investigate` runs the LLM tool loop with read-only billing tools only.
+- `analyze` computes every amount in Python (`Decimal`); the LLM never does the math.
+- `human_approval` suspends the graph; only an `approver` can resume it, and `execute` is the only node that writes.
+
 ## Tests
 ```powershell
 .venv\Scripts\python -m pytest tests -v
